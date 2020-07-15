@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2020-07-14T14:12:14.883+09:00
-  initializedAtString: 2020-07-14T14:12:14.883+09:00
+  lastUpdatedAtString: 2020-07-15T11:21:02.549+09:00
+  initializedAtString: 2020-07-15T11:21:02.549+09:00
   currentGitRemote:
     name: origin
-    url: https://github.com/yutaro0o/unitygame.git
+    url: https://github.com/yutaro0o/New-Unity-Project-Re
     login: 
     user: 
     host: 
@@ -30,9 +30,9 @@ MonoBehaviour:
     name: master
     remote:
       name: origin
-      url: https://github.com/yutaro0o/unitygame.git
+      url: https://github.com/yutaro0o/New-Unity-Project-Re
     trackingBranch: master
   currentConfigRemote:
     name: origin
-    url: https://github.com/yutaro0o/unitygame.git
+    url: https://github.com/yutaro0o/New-Unity-Project-Re
   currentHead: 

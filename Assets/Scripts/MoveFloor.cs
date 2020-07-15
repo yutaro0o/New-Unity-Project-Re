@@ -19,6 +19,7 @@ public class MoveFloor : BaseObstacleController
     {
         origin = transform.position;//原点の位置を記録
         destination = new Vector3(origin.x - moveX, origin.y - moveY, origin.z - moveZ);//目的地への移動量を記録
+        StartCoroutine(WaitTimer());//コルーチンでwaitTime止める
     }
     protected override void FixedUpdate()
     {

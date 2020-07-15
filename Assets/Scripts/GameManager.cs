@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
         textClear.enabled = false;
         nextSceneButton.SetActive(false);
         score = 0;
-        leftTime = 30f;
+        leftTime = 600f;
         //audioSource = gameObject.AddComponent<AudioSource>();
         //textScore = GameObject.Find("Score").GetComponent<Text>();
         //textLife = GameObject.Find("BallLife").GetComponent<Text>();
@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
                 //audioSource.PlayOneShot(overSound);
                 textGameOver.enabled = true;
                 inGame = false;
+                Lose();
             }
 
             GameObject playerObj = GameObject.Find("Player");
@@ -104,15 +105,8 @@ public class GameManager : MonoBehaviour
 
             if (playerhp.ReturnCurrentHP() <= 0)
             {
-                foreach(GameObject sword in swords)
-                {
-                    sword.SetActive(false);
-                }
-                foreach (GameObject shield in shields)
-                {
-                    shield.SetActive(false);
-                }
-                player.Lose();
+                inGame = false;
+                Lose();
                 playerObj = null;
             }
             if (playerObj == null)
@@ -137,15 +131,7 @@ public class GameManager : MonoBehaviour
             }
             if (targetObj == null)
             {
-                foreach (GameObject sword in swords)
-                {
-                    sword.SetActive(false);
-                }
-                foreach (GameObject shield in shields)
-                {
-                    shield.SetActive(false);
-                }
-                player.Win();
+                Win();
                 //audioSource.PlayOneShot(clearSound);
                 textClear.enabled = true;
                 if (i != lastscene)
@@ -189,4 +175,37 @@ public class GameManager : MonoBehaviour
         i++;
         SceneManager.LoadScene(i);
     }
+
+    public void Win()
+    {
+        GameObject[] swords = GameObject.FindGameObjectsWithTag("Sword");
+        GameObject[] shields = GameObject.FindGameObjectsWithTag("Shield");
+
+        foreach (GameObject sword in swords)
+        {
+            sword.SetActive(false);
+        }
+        foreach (GameObject shield in shields)
+        {
+            shield.SetActive(false);
+        }
+        player.Win();
+    }
+
+    public void Lose()
+    {
+        GameObject[] swords = GameObject.FindGameObjectsWithTag("Sword");
+        GameObject[] shields = GameObject.FindGameObjectsWithTag("Shield");
+
+        foreach (GameObject sword in swords)
+        {
+            sword.SetActive(false);
+        }
+        foreach (GameObject shield in shields)
+        {
+            shield.SetActive(false);
+        }
+        player.Lose();
+    }
+
 }
