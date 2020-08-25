@@ -82,6 +82,8 @@
     <Compile Include="Assets\Scripts\CrouchCollider.cs" />
     <Compile Include="Assets\Scripts\DangerBlock.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\FallFloor.cs" />
+    <Compile Include="Assets\Scripts\FallFloorTime.cs" />
     <Compile Include="Assets\Scripts\FallOut.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Hold.cs" />

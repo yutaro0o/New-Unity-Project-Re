@@ -15,12 +15,6 @@ public class FallOut : MonoBehaviour
         playerhp = playerPrefab.GetComponent<PlayerHPBar>();
     }
 
-    // Update is called once per frame
-    void Update() 
-    { 
-    
-    }
-
     void OnTriggerEnter(Collider other)　　//falloutにplayerがあたると
     {
         if (other.transform == fallout)
@@ -28,6 +22,5 @@ public class FallOut : MonoBehaviour
             transform.position = respawn.position;   //playerがあたると respawnの位置へ移動
             playerhp.Damaged(50); //落下時はHPが50減る
         }
-
     }
 }

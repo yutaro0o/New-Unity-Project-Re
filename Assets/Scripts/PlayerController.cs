@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float applySpeed = 0.2f;       // 振り向きの適用速度
     [SerializeField] private CameraController refCamera;    // カメラの水平回転を参照する用
 
-    private bool moveflg = false;//移動できるか判定するフラグ
+    private bool movableflg = false;//移動できるか判定するフラグ
 
     static int stateIdle = Animator.StringToHash("Base Layer.Idle");
     static int stateWalk = Animator.StringToHash("Base Layer.Walk");
@@ -25,11 +25,19 @@ public class PlayerController : MonoBehaviour
     static int stateRun = Animator.StringToHash("Base Layer.Run");
     private AnimatorStateInfo currentBaseState;
 
+    public GameObject playerPrefab;
+    Animator anim;
+    Crouch crouch;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        crouch = playerPrefab.GetComponent<Crouch>();
+    }
+
     void Update()
     {
 
-        Animator anim = GetComponent<Animator>();
-        Crouch crouch = new Crouch();
         // WASD入力から、XZ平面(水平な地面)を移動する方向(velocity)を得ます
         velocity = Vector3.zero;
 
@@ -52,14 +60,14 @@ public class PlayerController : MonoBehaviour
             currentBaseState.fullPathHash == stateCrouchWalk ||
             currentBaseState.fullPathHash == stateRun)
         {
-            moveflg = true;
+            movableflg = true;
         }
         else
         {
-            moveflg = false;
+            movableflg = false;
         }
 
-        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && moveflg == true)//方向キーを押しているとき(歩き)
+        if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D)) && movableflg == true)//方向キーを押しているとき(歩き)
         {
             if (crouch.CrouchJudge() == true && !Input.GetKey(KeyCode.LeftShift))//しゃがんでいてシフト（走りボタンが押されていないとき）
             {
