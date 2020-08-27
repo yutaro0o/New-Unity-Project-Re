@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cacheType: 1
-  lastUpdatedAtString: 2020-08-25T13:28:40.459+09:00
-  initializedAtString: 2020-08-25T13:28:40.459+09:00
+  lastUpdatedAtString: 2020-08-27T10:15:49.193+09:00
+  initializedAtString: 2020-08-27T10:15:49.193+09:00
   currentGitRemote:
     name: origin
     url: https://github.com/yutaro0o/New-Unity-Project-Re

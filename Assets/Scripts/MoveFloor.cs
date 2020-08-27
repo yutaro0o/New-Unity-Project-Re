@@ -49,14 +49,12 @@ public class MoveFloor : BaseObstacleController
     }
     protected virtual void OnCollisionEnter(Collision other)//乗ったら
     {
-        if (other.gameObject.CompareTag("Player"))//プレイヤータグのついたオブジェクトなら
         {
             other.gameObject.transform.SetParent(gameObject.transform);//プレイヤーを子オブジェクトにする
         }
     }
     protected virtual void OnCollisionExit(Collision other)//離れたら
     {
-        if (other.gameObject.CompareTag("Player"))//プレイヤータグをつけたオブジェクトなら
         {
             other.gameObject.transform.SetParent(null);//子オブジェクトから外す
         }
